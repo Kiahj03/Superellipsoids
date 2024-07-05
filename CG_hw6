@@ -1,0 +1,58 @@
+#!/bin/bash
+
+s1_val=1
+s2_val=1
+A_val=1
+B_val=1
+C_val=1
+u_num=18
+v_num=9
+shading="-F"
+
+while [[ $# -gt 0 ]]; do
+  key="$1"
+  case $key in
+    -r)
+      s1_val="$2"
+      shift; shift
+      ;;
+    -t)
+      s2_val="$2"
+      shift; shift
+      ;;
+    -A)
+      A_val="$2"
+      shift; shift
+      ;;
+    -B)
+      B_val="$2"
+      shift; shift
+      ;;
+    -C)
+      C_val="$2"
+      shift; shift
+      ;;
+    -u)
+      u_num="$2"
+      shift; shift
+      ;;
+    -v)
+      v_num="$2"
+      shift; shift
+      ;;
+    -F)
+      shading="-F"
+      shift
+      ;;
+    -S)
+      shading="-S"
+      shift
+      ;;
+    *)
+      echo "Usage: cmd [-r s1_val] [-t s2_val] [-A A_val] [-B B_val] [-C C_val] [-u u_num] [-v v_num] [-F] [-S]"
+      exit 1
+      ;;
+  esac
+done
+
+python3 superellipsoid.py -r $s1_val -t $s2_val -A $A_val -B $B_val -C $C_val -u $u_num -v $v_num $shading

@@ -1,0 +1,46 @@
+Kiah Johnson
+CS536 - Homework Assignment Six
+Superellipsoids
+
+Superellipsoids Evaluator with a Open Inventor File Generator
+
+Features
+    This python script computes a superellipsoid and approximates it with triangles.
+    
+    - Input: Parameter arguments in terminal
+    - Output: A Open Inventor file with the generated superellipsoid.
+
+Environment
+    - Language: Python 3
+    - OS: Compatible with Windows, macOS, and Linux
+    - Interpreter: Python interpreter
+
+Usage
+    Running the Script
+        1. Clone or download the script with example inputs into local machine
+        2. Open terminal with directory containing the script
+        3. Run the script with the following structure:
+            ./CG_hw6 -r s1_val -t s2_val -A A_val -B B_val -C C_val -u u_num -v v_num -F/S
+
+    Arguments
+        - '-r s1_val': The shape parameter for longitude lines
+        - '-t s2_val': The shape parameter for latitude lines
+        - '-A A_val': The scale factor for the x coordinate
+        - '-B B_val': The scale factor for the y coordinate
+        - '-C C_val': The scale factor for the z coordinate
+        - '-u u_num': The number of unique latittude line samples (Default is 18)
+        - '-v v_num': The number of longitude line samples (Default is 9)
+        - '-F': Flat shaded, no normals/triangle mesh (Default)
+        - '-S': Smooth shaded, normal/triangle mesh
+
+    Output
+        The script prints a standard out version of the Open Inventor file and can generate a separate Open Inventor file which is placed within the same directory as script.
+
+Examples
+    1. This command evaluates the superellipsoid using the default inputs. It will print to standard out:
+
+        ./CG_hw6
+
+    2. This command evaluates the superellipsoid with the default values for A, B, C, and s2_val, but customized values for the rest of the arguments. The output will be saved to a file called 'my_superellipsoid.iv':
+
+        ./CG_hw6 -r 0.09 -u 24 -v 13 -S > my_superellipsoid.iv
